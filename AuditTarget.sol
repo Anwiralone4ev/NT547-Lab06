@@ -19,7 +19,7 @@ contract PiggyBank_0656 {
     event Deposited(address indexed who, uint256 amount);
 
     modifier onlyOwner() {
-        require(tx.origin == owner, "not owner");
+        require(msg.sender == owner, "not owner");
         _;
     }
 
