@@ -1,0 +1,9 @@
+{
+  "mssv": "25520656",
+  "session_code": "SC-6E3C97",
+  "contract": "PiggyBank_0656",
+  "baseline_sha256": "ddb452f8f6a3a4ff200723c0a753d19ba42ede600e90343d56a3c2c26cf978ef",
+  "generated_utc": "2026-11-20T11:32:05.865870+00:00",
+  "solidity": "0.8.24",
+  "note": "session_code sinh tai may SV, KHONG do GV cap"
+}

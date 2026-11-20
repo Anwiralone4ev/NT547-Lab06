@@ -1,0 +1,7 @@
+﻿index,check,impact,confidence,file,lines,description
+1,weak-prng,High,Medium,AuditTarget.sol,"60,61,62,63,64,65,66,67; 62","PiggyBank_0656.settle() (AuditTarget.sol#60-67) uses a weak PRNG: ""idx = block.timestamp % players.length (AuditTarget.sol#62)"""
+2,reentrancy-eth,High,Medium,AuditTarget.sol,"73,74,75,76,77,78,79; 76; 78","Reentrancy in PiggyBank_0656.redeem() (AuditTarget.sol#73-79): 	External calls: 	- (ok,None) = msg.sender.call{value: amount}() (AuditTarget.sol#76) 	State variables written after the call(s): 	- deposits[msg.sender] = 0 (AuditTarget.sol#78) 	PiggyBank_0656.deposits (AuditTarget.sol#12) can be used in cross function reentrancies: 	- PiggyBank_0656.deposits (AuditTarget.sol#12) 	- PiggyBank_0656.redeem() (AuditTarget.sol#73-79) 	- PiggyBank_0656.save() (AuditTarget.sol#28-31)"
+3,uninitialized-state,High,High,AuditTarget.sol,"14; 45,46,47",PiggyBank_0656.feeWallet (AuditTarget.sol#14) is never initialized. It is used in: 	- PiggyBank_0656.forwardFees() (AuditTarget.sol#45-47)
+4,incorrect-equality,Medium,High,AuditTarget.sol,"69,70,71; 70",PiggyBank_0656.isEmpty() (AuditTarget.sol#69-71) uses a dangerous strict equality: 	- address(this).balance == 0 (AuditTarget.sol#70)
+5,tx-origin,Medium,Medium,AuditTarget.sol,"49,50,51,52,53; 50","PiggyBank_0656.handOver(address) (AuditTarget.sol#49-53) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,not owner) (AuditTarget.sol#50)"
+6,constable-states,Optimization,High,AuditTarget.sol,14,PiggyBank_0656.feeWallet (AuditTarget.sol#14) should be constant
